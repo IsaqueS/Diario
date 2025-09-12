@@ -1,0 +1,112 @@
+#:kivy 2.3.1
+# Import the translator instance from the app
+#:set _ app._
+
+<BoxLayout>
+    spacing: '10dp'
+    padding: '10dp'
+
+<WarningPopup>
+    size_hint: .7,.5
+    auto_dismiss: False
+    title: root.title
+
+    BoxLayout:
+        orientation:'vertical'
+        Label:
+            text: root.message
+        Button:
+            size_hint_y: .3
+            text: "Okay"
+            on_press: root.dismiss()
+<Window>
+    TabbedPanel:
+        size: root.size
+        pos: root.pos
+        do_default_tab: False
+        tab_width: self.width / len(self.tab_list) if self.tab_list else 100
+
+
+        TabbedPanelItem:
+            text:"Escreva"
+            BoxLayout:
+                orientation:'vertical'
+                Label:
+                    text: "Escreva sobre o seu dia! :D"
+                    # Desativa o controle de tamanho pelo layout em ambas as direções
+                    # size_hint_x: None
+                    size_hint_y: None
+                    # Define o tamanho exato com base no texto renderizado
+                    size: self.texture_size
+                TextInput:
+                    id: diary_input
+                    hint_text: 'Escreva o que você espera do seu dia'
+                    # Para garantir que o TextInput ocupe o espaço restante
+                    size_hint_y: 1
+                Label:
+                    text: "Como você se sentiu?"
+                    size_hint_y: None
+                    size: self.texture_size
+                BoxLayout:
+                    spacing: '2dp'
+                    padding: 0
+                    orientation: "horizontal"
+                    size_hint_y: .1
+                    id: emotions_box
+
+                    ToggleButton:
+                        emotion_id: "happy"
+                        text:'Feliz'
+                        group: "emotion"
+                    ToggleButton:
+                        emotion_id: "peace"
+                        text:'Paz'
+                        group: "emotion"
+                    ToggleButton:
+                        emotion_id: "sad"
+                        text:'Triste'
+                        group: "emotion"
+                    ToggleButton:
+                        emotion_id: "confused"
+                        text:'Confuso'
+                        group: "emotion"
+                    ToggleButton:
+                        emotion_id: "shame"
+                        text:'Vergolha'
+                        group: "emotion"
+                    ToggleButton:
+                        emotion_id: "angry"
+                        text:'Bravo'
+                        group: "emotion"
+                    ToggleButton:
+                        emotion_id: "meh"
+                        text:'Meh'
+                        group: "emotion"
+                    ToggleButton:
+                        emotion_id: "tired"
+                        text:'Cansado'
+                        group: "emotion"
+
+                BoxLayout:
+                    orientation: "horizontal"
+                    spacing: '10dp'
+                    padding: 0
+                    size_hint_y: .1
+                    # size: self.texture_size
+                    Button:
+                        text: 'Adicionar mídia'
+                        # on_press: callback_function
+                    Button:
+                        text: _("save")
+                        on_press: root.save_day()
+
+        TabbedPanelItem:
+            text:"Leia"
+            Label:
+                text:'SJHKJHDKJSHAKJD'
+
+        TabbedPanelItem:
+            text:"Navegue"
+        
+        TabbedPanelItem:
+            text: "Sobre"
