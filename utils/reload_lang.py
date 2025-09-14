@@ -1,4 +1,4 @@
-import json, csv, os
+import csv, os, tomli_w
 from pathlib import Path
 
 CSV_PATH = Path("utils/")
@@ -27,14 +27,15 @@ if __name__ == "__main__":
                 text[languages[id -1]][row[0]] = row[id]
         
         for language_text in text.keys():
-            with open(LANG_PATH / f"{language_text}.json", "w", encoding="utf8") as file:
-                json.dump(text[language_text], file,separators=(',', ':'), ensure_ascii=False)
+            with open(LANG_PATH / f"{language_text}.toml", "w", encoding="utf8") as file:
+                toml: str = tomli_w.dumps(text[language_text], multiline_strings=True)
+                file.write(toml)
 
         def remove_language(path: Path) -> None:
             if not path.stem in languages:
                 os.remove(path)
                 print("Removed: %s"%path.stem)
 
-        [remove_language(item) for item in CSV_PATH.rglob("*.json")]
+        [remove_language(item) for item in CSV_PATH.rglob("*.toml")]
 
         print("Lang file updated!")

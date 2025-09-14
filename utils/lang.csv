@@ -7,7 +7,7 @@ happy;Feliz;Happy
 peace;Paz;Peace
 sad;Triste;Sad
 confused;Confuso;Confused
-shame;Vergolha;Shame
+shame;Vergonha;Shame
 angry;Bravo;Angry
 meh;Meh;Meh
 tired;Cansado;Tired
@@ -17,3 +17,9 @@ write;Escreva;Write
 read;Leia;Read
 explore;Navegue;Explore
 about;Sobre;About
+warning;Atenção;Warning
+finish-text;"Termine de escrever sobre o seu dia!
+
+E não esqueça de escolher a emoção do dia";"Finish writing about your day!
+
+And dont forget to select the emotion of the day."

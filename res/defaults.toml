@@ -1,0 +1,7 @@
+[path] # only insert string path values!
+lang = "res/lang/"
+save = "~/Diary/"
+[app]
+save-version = "1.0.0"
+[file-name]
+day="day.toml"

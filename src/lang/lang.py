@@ -1,8 +1,9 @@
-import json, locale, os
+import locale, os, tomllib
 from pathlib import Path
 from kivy.logger import Logger
+from src.settings import settings
 
-LANG_PATH = Path("res/lang/")
+LANG_PATH = Path(settings["path"]["lang"])
 DEFAULT_LANG = "en"
 
 class Lang():
@@ -22,12 +23,12 @@ class Lang():
     def switch_language(self, lang: str):
         self.text: dict[str,str] = {}
 
-        if not os.path.exists(LANG_PATH / f"{lang}.json"):
+        if not os.path.exists(LANG_PATH / f"{lang}.toml"):
             Logger.warning(f"'{lang}' language code not found, using: {DEFAULT_LANG}")
             lang = DEFAULT_LANG
 
-        with open(LANG_PATH / f"{lang}.json", "r", encoding="utf8") as file:
-            self.text = json.load(file)
+        with open(LANG_PATH / f"{lang}.toml", "rb") as file:
+            self.text = tomllib.load(file)
         
         Logger.info("Language selected: %s"%lang)
     def __call__(self, id: str) -> str:
