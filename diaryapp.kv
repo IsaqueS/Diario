@@ -6,6 +6,12 @@
     spacing: '10dp'
     padding: '10dp'
 
+<Label>
+    font_name: 'assets/main_font.ttf'
+    font_size: "20sp"
+<TextInput>
+    font_name: 'assets/main_font.ttf'
+
 <WarningPopup>
     size_hint: .7,.5
     auto_dismiss: False
@@ -28,11 +34,11 @@
 
 
         TabbedPanelItem:
-            text:"Escreva"
+            text:_("write")
             BoxLayout:
                 orientation:'vertical'
                 Label:
-                    text: "Escreva sobre o seu dia! :D"
+                    text: _("write-about-day")
                     # Desativa o controle de tamanho pelo layout em ambas as direções
                     # size_hint_x: None
                     size_hint_y: None
@@ -40,11 +46,11 @@
                     size: self.texture_size
                 TextInput:
                     id: diary_input
-                    hint_text: 'Escreva o que você espera do seu dia'
+                    hint_text: _("write-day-hint")
                     # Para garantir que o TextInput ocupe o espaço restante
                     size_hint_y: 1
                 Label:
-                    text: "Como você se sentiu?"
+                    text: _("how-did-you-felt")
                     size_hint_y: None
                     size: self.texture_size
                 BoxLayout:
@@ -56,35 +62,35 @@
 
                     ToggleButton:
                         emotion_id: "happy"
-                        text:'Feliz'
+                        text: _("happy")
                         group: "emotion"
                     ToggleButton:
                         emotion_id: "peace"
-                        text:'Paz'
+                        text:_("peace")
                         group: "emotion"
                     ToggleButton:
                         emotion_id: "sad"
-                        text:'Triste'
+                        text: _("sad")
                         group: "emotion"
                     ToggleButton:
                         emotion_id: "confused"
-                        text:'Confuso'
+                        text: _("confused")
                         group: "emotion"
                     ToggleButton:
                         emotion_id: "shame"
-                        text:'Vergolha'
+                        text: _("shame")
                         group: "emotion"
                     ToggleButton:
                         emotion_id: "angry"
-                        text:'Bravo'
+                        text: _("angry")
                         group: "emotion"
                     ToggleButton:
                         emotion_id: "meh"
-                        text:'Meh'
+                        text: _("meh")
                         group: "emotion"
                     ToggleButton:
                         emotion_id: "tired"
-                        text:'Cansado'
+                        text: _("tired")
                         group: "emotion"
 
                 BoxLayout:
@@ -94,19 +100,23 @@
                     size_hint_y: .1
                     # size: self.texture_size
                     Button:
-                        text: 'Adicionar mídia'
+                        text: _("add-midia")
                         # on_press: callback_function
                     Button:
                         text: _("save")
                         on_press: root.save_day()
 
         TabbedPanelItem:
-            text:"Leia"
+            text: _("read")
             Label:
                 text:'SJHKJHDKJSHAKJD'
 
         TabbedPanelItem:
-            text:"Navegue"
+            text: _("explore")
         
         TabbedPanelItem:
-            text: "Sobre"
+            text: _("about")
+
+            BoxLayout:
+                Label:
+                    text: "Made by Isaque"
