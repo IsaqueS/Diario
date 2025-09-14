@@ -2,7 +2,7 @@ import json, locale, os
 from pathlib import Path
 from kivy.logger import Logger
 
-LANG_PATH = Path("src/lang/")
+LANG_PATH = Path("res/lang/")
 DEFAULT_LANG = "en"
 
 class Lang():
