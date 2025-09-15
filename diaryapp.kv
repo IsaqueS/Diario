@@ -7,10 +7,10 @@
     padding: '10dp'
 
 <Label>
-    font_name: 'res/main_font.ttf'
+    font_name: "ChakraPetch"
     font_size: "20sp"
 <TextInput>
-    font_name: 'res/main_font.ttf'
+    font_name: 'ChakraPetch'
 
 <WarningPopup>
     size_hint: .7,.5
@@ -37,17 +37,32 @@
             text:_("write")
             BoxLayout:
                 orientation:'vertical'
-                Label:
-                    text: _("write-about-day")
-                    # Desativa o controle de tamanho pelo layout em ambas as direções
-                    # size_hint_x: None
-                    size_hint_y: None
-                    # Define o tamanho exato com base no texto renderizado
-                    size: self.texture_size
-                TextInput:
-                    id: diary_input
-                    hint_text: _("write-day-hint")
-                    size_hint_y: 1
+                BoxLayout:
+                    size_hint_y: .08
+                    Label:
+                        text: _("write-about-day")
+                        # Desativa o controle de tamanho pelo layout em ambas as direções
+                        # size_hint_x: None
+                        # size_hint_y: None
+                        # Define o tamanho exato com base no texto renderizado
+                        # size: self.texture_size
+                    Label:
+                        text: _("day") + " " + root.return_day()
+                        # Desativa o controle de tamanho pelo layout em ambas as direções
+                        # size_hint_x: None
+                        # size_hint_y: None
+                        # Define o tamanho exato com base no texto renderizado
+                        # size: self.texture_size
+                BoxLayout:
+                    orientation: "horizontal"
+                    TextInput:
+                        id: diary_input
+                        hint_text: _("text-style-tip")
+                        size_hint_y: 1
+                        on_text: root.text_changed(self.text)
+                    RstDocument:
+                        id: diary_display
+                        text: _("text-style-tip")
                 Label:
                     text: _("how-did-you-felt")
                     size_hint_y: None

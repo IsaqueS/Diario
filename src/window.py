@@ -46,6 +46,12 @@ class Window(Widget):
                     # print(emotion)
                     # print(emotion_button_found.text)
 
+    def text_changed(self, text: str) -> None:
+        # print(self.ids.diary_display.text)
+        self.ids.diary_display.text = text
+    
+    def return_day(self, time: datetime = datetime.now()) -> str:
+        return time.strftime("%d/%m/%Y")
 
     def save_day(self) -> None: 
         # print("SALVO!")

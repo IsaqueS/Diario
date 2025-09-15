@@ -21,3 +21,18 @@ finish-text = """
 Termine de escrever sobre o seu dia!
 
 E não esqueça de escolher a emoção do dia"""
+text-style-tip = """
+Titulo
+---------------
+Texto normal
+
+**Negrito**
+
+*italico*
+
+Marcado_
+
+::
+
+	$ print(\"CODIGO\")"""
+"" = ""

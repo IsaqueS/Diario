@@ -23,3 +23,17 @@ finish-text;"Termine de escrever sobre o seu dia!
 E não esqueça de escolher a emoção do dia";"Finish writing about your day!
 
 And dont forget to select the emotion of the day."
+text-style-tip;"Titulo
+---------------
+Texto normal
+
+**Negrito**
+
+*italico*
+
+Marcado_
+
+::
+
+	$ print(""CODIGO"")";
+;;
