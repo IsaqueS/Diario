@@ -47,8 +47,10 @@ class Window(Widget):
                     # print(emotion_button_found.text)
 
     def text_changed(self, text: str) -> None:
-        # print(self.ids.diary_display.text)
-        self.ids.diary_display.text = text
+        if text:
+            self.ids.diary_display.text = text
+        else:
+            self.ids.diary_display.text = self.app._("text-style-tip")
     
     def return_day(self, time: datetime = datetime.now()) -> str:
         return time.strftime("%d/%m/%Y")
